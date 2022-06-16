@@ -1,0 +1,11 @@
+<%- include("./header.ejs") %>
+<form method="POST" action="<%= '/'+user.id+'/update' %>" >
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="form-control" id="username" value="<%= user.Name %>" placeholder="Enter new username">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<%- include("./footer.ejs") %>
+
+

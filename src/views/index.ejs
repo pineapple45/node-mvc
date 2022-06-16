@@ -1,5 +1,7 @@
 <%- include("./header.ejs") %>
 <h2 class="mt-5 mb-3">Node-MVC</h2>
+<a class="btn btn-sm btn-warning" href="/create">+ Create New User</a>
+
 <table class="table">
   <thead>
     <tr>
@@ -15,9 +17,11 @@
     <tr>
       <td><%= user.id %></td>
       <td class="status"><%= user.Name %></td>
-      <td class="d-print-none">
-        <a class="btn btn-sm btn-warning">Update</a>
-        <a class="btn btn-sm btn-danger">Delete</a>
+      <td class="d-print-none d-flex">
+        <a class="btn btn-sm btn-warning" href="<%= '/'+user.id+'/update' %>">Update</a>
+        <!-- <a class="btn btn-sm btn-danger" href="<%= '/'+user.id+'/delete' %>">Delete</a> -->
+        <form id="deleteForm" method="POST" action="<%= '/'+user.id+'/delete' %>"></form>
+        <a class="btn btn-sm btn-danger" onclick="document.getElementById('deleteForm').submit();">Delete</a>
       </td>
     </tr>
     <% } %>
