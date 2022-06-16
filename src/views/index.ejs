@@ -1,0 +1,28 @@
+<%- include("./header.ejs") %>
+<h2 class="mt-5 mb-3">Node-MVC</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th class="d-print-none">
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const user of users) { %>
+    <tr>
+      <td><%= user.id %></td>
+      <td class="status"><%= user.Name %></td>
+      <td class="d-print-none">
+        <a class="btn btn-sm btn-warning">Update</a>
+        <a class="btn btn-sm btn-danger">Delete</a>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+<%- include("./footer.ejs") %>
+
+
