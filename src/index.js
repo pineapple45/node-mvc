@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const { connectToDb } = require('./database/database');
+const { db } = require('./database/database');
+
 const {
   getUsers,
   updateUser,
@@ -24,7 +25,8 @@ app.get('/create', newUser);
 app.post('/create', createUser);
 
 const run = async () => {
-  await connectToDb()
+  await db
+    .connect()
     .then(() => {
       app.listen(3000, () => console.log('Listening on PORT 3000'));
     })
